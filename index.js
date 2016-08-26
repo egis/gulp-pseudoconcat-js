@@ -22,6 +22,8 @@ module.exports = function(fileName, opt, remoteFiles) {
     opt.webRoot = path.resolve(process.cwd(), opt.webRoot);
   }
 
+  opt.host = opt.host || "";
+
   var buffer = [];
   var firstFile = null;
 
@@ -51,7 +53,7 @@ module.exports = function(fileName, opt, remoteFiles) {
       if (path.sep !== URL_SEPARATOR) {
         scriptPath = scriptPath.split(path.sep).join(URL_SEPARATOR);
       }
-      return '<script src="' + scriptPath + '"></script>';
+      return '<script src="' + opt.host + scriptPath + '"></script>';
     });
 
     var joinedContents = new Buffer('document.write(\'' + remoteScripts.join('') + scripts.join('') + '\');', 'utf-8');
@@ -70,4 +72,4 @@ module.exports = function(fileName, opt, remoteFiles) {
   }
 
   return through(bufferContents, endStream);
-};
+};                                                         
