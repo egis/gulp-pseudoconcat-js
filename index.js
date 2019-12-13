@@ -1,7 +1,6 @@
 var Buffer = require('buffer').Buffer;
-var gutil = require('gulp-util');
 var PluginError = require('plugin-error');
-var File = gutil.File;
+var Vinyl = require('vinyl');
 var path = require('path');
 var through = require('through');
 
@@ -60,7 +59,7 @@ module.exports = function(fileName, opt, remoteFiles) {
 
     var joinedPath = path.join(firstFile.base, fileName);
 
-    var joinedFile = new File({
+    var joinedFile = new Vinyl({
       cwd: firstFile.cwd,
       base: firstFile.base,
       path: joinedPath,
