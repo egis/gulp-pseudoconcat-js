@@ -1,6 +1,6 @@
 var Buffer = require('buffer').Buffer;
 var gutil = require('gulp-util');
-var PluginError = gutil.PluginError;
+var PluginError = require('plugin-error');
 var File = gutil.File;
 var path = require('path');
 var through = require('through');
