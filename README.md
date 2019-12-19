@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/artemv/gulp-pseudoconcat-js.svg?branch=master)](https://travis-ci.org/artemv/gulp-pseudoconcat-js)
-[![Dependency Status](https://david-dm.org/artemv/gulp-pseudoconcat-js.png)](https://david-dm.org/artemv/gulp-pseudoconcat-js) 
-[![devDependency Status](https://david-dm.org/artemv/gulp-pseudoconcat-js/dev-status.png)](https://david-dm.org/artemv/gulp-pseudoconcat-js#info=devDependencies)
+[![Dependency Status](https://david-dm.org/egis/gulp-pseudoconcat-js.png)](https://david-dm.org/egis/gulp-pseudoconcat-js) 
+[![devDependency Status](https://david-dm.org/egis/gulp-pseudoconcat-js/dev-status.png)](https://david-dm.org/egis/gulp-pseudoconcat-js#info=devDependencies)
 
 ## Information
 
