@@ -4,10 +4,10 @@
 'use strict';
 
 var assert = require('assert'),
-  gutil = require('gulp-util'),
   PassThrough = require('stream').PassThrough,
   path = require('path'),
-  pseudoconcat = require('./index');
+  pseudoconcat = require('./index'),
+  Vinyl = require('vinyl');
 
 describe('gulp-pseudoconcat-js', function() {
   var onDataCalled;
@@ -19,12 +19,12 @@ describe('gulp-pseudoconcat-js', function() {
 
   it('should transform files to <script>', function(done) {
     var stream = pseudoconcat('file.js');
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       path: 'file1-path.js',
       contents: new Buffer('file1-content')
     });
 
-    var fakeFile2 = new gutil.File({
+    var fakeFile2 = new Vinyl({
       path: 'file2-path.js',
       contents: new Buffer('file2-content')
     });
@@ -46,7 +46,7 @@ describe('gulp-pseudoconcat-js', function() {
 
   it('should preserve full path without options.webRoot', function(done) {
     var stream = pseudoconcat('file.js');
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       path: 'project/src/frontend/first.js',
       contents: new Buffer('file1-content')
     });
@@ -67,7 +67,7 @@ describe('gulp-pseudoconcat-js', function() {
 
   it('should derive path from webRoot', function(done) {
     var stream = pseudoconcat('file.js', {webRoot: 'project/src'});
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       path: 'project/src/frontend/first.js',
       contents: new Buffer('file1-content')
     });
@@ -89,7 +89,7 @@ describe('gulp-pseudoconcat-js', function() {
   it('should not work in stream mode', function(done) {
     var stream = pseudoconcat('file.js');
     var fakeStream = new PassThrough();
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       contents: fakeStream
     });
 
@@ -121,7 +121,7 @@ describe('gulp-pseudoconcat-js', function() {
 
     it('convert path to url', function(done) {
       var stream = pseudoconcat('file.js');
-      var fakeFile = new gutil.File({
+      var fakeFile = new Vinyl({
         path: 'src\\frontend\\first.js',
         contents: new Buffer('file1-content')
       });
